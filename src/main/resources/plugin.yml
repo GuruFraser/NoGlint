@@ -1,0 +1,9 @@
+name: NoGlint
+main: net.servonetwork.noglint.NoGlintPlugin
+version: 1.0
+authors: [Guru_Fraser]
+depend: [ProtocolLib]
+commands:
+    glint:
+        description: Disable / Enable Glint
+        usage: Type "/glint" to enable / disable glint
