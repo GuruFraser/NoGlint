@@ -2,6 +2,8 @@ package net.servonetwork.noglint.manager;
 
 import net.servonetwork.noglint.NoGlintPlugin;
 import net.servonetwork.noglint.util.GlintUtils;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
@@ -11,7 +13,7 @@ import java.util.UUID;
 /**
  * ---------- NoGlint ----------
  * Created by Fraser.Cumming on 16/05/2015.
- * © 2015 Fraser Cumming All Rights Reserved
+ * ï¿½ 2015 Fraser Cumming All Rights Reserved
  */
 public class GlintManager {
 
