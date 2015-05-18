@@ -15,7 +15,7 @@ import java.util.logging.Level;
 /**
  * ---------- NoGlint ----------
  * Created by Fraser.Cumming on 16/05/2015.
- * © 2015 Fraser Cumming All Rights Reserved
+ * ï¿½ 2015 Fraser Cumming All Rights Reserved
  */
 public class GlintUtils {
 
@@ -40,29 +40,21 @@ public class GlintUtils {
         int slot = 1;
         for( ItemStack item : sending.getInventory().getArmorContents() ) {
             item = item.clone();
-            if( item != null ) {
-                if( !glint ) {
-                    GlintUtils.removeGlint( item );
-                }
-                try {
-                    plugin.getProtocolManager().sendServerPacket( data, constructEquipmentPacket( sending, item, slot ) );
-                } catch ( InvocationTargetException e ) {
-                    plugin.getLogger().log( Level.WARNING, "Failed to send equipment packet to player (" + slot + ")" );
-                    e.printStackTrace();
-                }
-            }
+            handleGlint( item, data, sending, slot, glint );
             slot++;
         }
-        ItemStack held = data.getItemInHand();
-        if( held != null ) {
-            held = held.clone();
-            if ( !glint ) {
-                GlintUtils.removeGlint( held );
+        handleGlint( data.getItemInHand(), data, sending, 0, glint );
+    }
+
+    public static void handleGlint( ItemStack item, Player data, Player sending, int slot, boolean glint ) {
+        if( item != null ) {
+            if( !glint ) {
+                GlintUtils.removeGlint( item );
             }
             try {
-                plugin.getProtocolManager().sendServerPacket( data, constructEquipmentPacket( sending, held, 0 ) );
+                plugin.getProtocolManager().sendServerPacket( data, constructEquipmentPacket( sending, item, slot ) );
             } catch ( InvocationTargetException e ) {
-                plugin.getLogger().log( Level.WARNING, "Failed to send equipment packet to player (0)" );
+                plugin.getLogger().log( Level.WARNING, "Failed to send equipment packet to player (" + slot + ")" );
                 e.printStackTrace();
             }
         }
