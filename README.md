@@ -5,6 +5,9 @@ The aim of this plugin is for server owners to be able to provide players with t
 
 Do note that this will not hide your own enchantments, only those of other players.
 
+# Dependencies
+This plugin requires Protocol Lib to run, you can get it here: http://ci.shadowvolt.com/job/ProtocolLib/
+
 # Commands
 > /Glint
 
