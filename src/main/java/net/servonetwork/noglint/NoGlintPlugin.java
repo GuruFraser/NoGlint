@@ -4,6 +4,7 @@ import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
 import net.servonetwork.noglint.commands.GlintCommand;
 import net.servonetwork.noglint.listeners.EquipmentListener;
+import net.servonetwork.noglint.listeners.ItemListener;
 import net.servonetwork.noglint.manager.GlintManager;
 import net.servonetwork.noglint.util.GlintUtils;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -28,6 +29,7 @@ public class NoGlintPlugin extends JavaPlugin {
     public void onEnable() {
         glintManager = new GlintManager( this );
         protocolManager.addPacketListener( new EquipmentListener( this ) );
+        protocolManager.addPacketListener( new ItemListener( this ) );
         new GlintUtils( this ); //Load Utils
         this.getCommand( "glint" ).setExecutor( new GlintCommand( this ) );
         super.onEnable();
