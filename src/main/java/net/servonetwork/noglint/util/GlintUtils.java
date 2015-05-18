@@ -19,6 +19,12 @@ import java.util.logging.Level;
  */
 public class GlintUtils {
 
+    private static NoGlintPlugin plugin;
+
+    public GlintUtils( NoGlintPlugin plugin ) {
+        this.plugin = plugin;
+    }
+
     public static void removeGlint( ItemStack item ) {
         for( Enchantment enchantment : item.getEnchantments().keySet() ) {
             item.removeEnchantment( enchantment );
